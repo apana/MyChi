@@ -254,6 +254,8 @@ void ChiNtuple::Loop(){
   std::vector<string> htBins, ptBins, mBins,flatBins;
 
   flatBins.push_back("flatQCD");
+  flatBins.push_back("flatPythia8");
+  flatBins.push_back("flatHerwigpp");
   
   htBins.push_back("HT300to500");
   htBins.push_back("HT500to700");
@@ -752,6 +754,11 @@ void ChiNtuple::Loop(){
 		    (jetAK4_IDTight.at(0)==1) &&
 		    (jetAK4_IDTight.at(1)==1)
 		    );
+
+	// if (selectReco){//ccla Check if affected by trigger prefiring in 2016 and 2017
+	//   if (Jet1.Pt()>100 && fabs(Jet1.PseudoRapidity())>2.25 && fabs(Jet1.PseudoRapidity())<2.5) selectReco=false;
+	//   if (Jet2.Pt()>100 && fabs(Jet2.PseudoRapidity())>2.25 && fabs(Jet2.PseudoRapidity())<2.5) selectReco=false;
+	// }
 	if (selectReco){	     
 	    
 	  double DijetMass = (Jet1+Jet2).M();

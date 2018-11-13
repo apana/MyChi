@@ -370,8 +370,11 @@ void ChiNtuple::BookHistograms(const std::string & fname){
   //Hlist->Add(myHist);
   // TCanvas c1("c1","c1",200,200);
 
-  int nMass=80.;
-  double minMass=0., maxMass=8000.;
+  //int nMass=80.;
+  //double minMass=0., maxMass=8000.;
+
+  int nMass=130.;
+  double minMass=0., maxMass=13000.;
 
   hname="dijet_mass"; htitle="M_{jj} -- No Trigger Requirement";
   m_HistNames[hname] =  Book1dHist(hname,htitle,nMass,minMass,maxMass, true);
