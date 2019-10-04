@@ -370,8 +370,11 @@ void ChiNtuple::BookHistograms(const std::string & fname){
   //Hlist->Add(myHist);
   // TCanvas c1("c1","c1",200,200);
 
-  int nMass=80.;
-  double minMass=0., maxMass=8000.;
+  //int nMass=80.;
+  //double minMass=0., maxMass=8000.;
+
+  int nMass=130.;
+  double minMass=0., maxMass=13000.;
 
   hname="dijet_mass"; htitle="M_{jj} -- No Trigger Requirement";
   m_HistNames[hname] =  Book1dHist(hname,htitle,nMass,minMass,maxMass, true);
@@ -697,21 +700,36 @@ double ChiNtuple::TriggerEff2016(double mass, double chi){
   
   double par[] { 0, 0., 0. }; 
 
+  // prompt reco data correction factors  
+//   if ( chi <= 14){
+//     return eff;
+//   }else if ( chi <= 15){
+//     par[0] = 1.0;
+//     par[1] = 1707.08830701; 
+//     par[2] = 157.415787067;
+//   }else if ( chi <= 16){
+//     par[0] = 1.0;
+//     par[1] = 1738.6849109;
+//     par[2] = 174.329521835;
+//   }else{
+//     return eff;
+//   }  
+
+  // re-reco data correction factors v1
   if ( chi <= 14){
     return eff;
   }else if ( chi <= 15){
     par[0] = 1.0;
-    par[1] = 1707.08830701; 
-    par[2] = 157.415787067;
+    par[1] = 1605.72602433; 
+    par[2] = 263.423655296;
   }else if ( chi <= 16){
     par[0] = 1.0;
-    par[1] = 1738.6849109;
-    par[2] = 174.329521835;
+    par[1] = 1647.137801;
+    par[2] = 291.50805604;
   }else{
     return eff;
-  }  
-    
-
+  }    
+  
   double xx=mass;
   if (xx<1900.) xx=1900.;
   
