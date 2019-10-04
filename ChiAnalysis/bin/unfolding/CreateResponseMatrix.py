@@ -11,7 +11,11 @@ from array import array
 import ROOT
 from ROOT import *
 
-ROOT.gROOT.LoadMacro( "./RooUnfold/libRooUnfold.so" )
+
+#print ROOT.gROOT.GetMacroPath()
+
+#ROOT.gROOT.SetMacroPath('$PWD')
+ROOT.gROOT.LoadMacro('./RooUnfold/libRooUnfold.so')
 
 
 from ROOT import RooUnfoldResponse
@@ -22,8 +26,9 @@ from ROOT import RooUnfoldBayes
 from RootIOFuncs import *
 
 # ROOT.gROOT.SetMacroPath(ROOT.gROOT.GetMacroPath() + ":" + os.path.join(os.environ.get("CMSSW_BASE"),'src/Analysis'))
+#print ROOT.gROOT.GetMacroPath()
 ROOT.gROOT.LoadMacro('../NtupleStruct.h+')
-
+#sys.exit()
 
 ### Histogram binning
 nMass=14
@@ -38,8 +43,8 @@ maxChi=16.
 
 
 ## massBins2=[0,1000,1200,1500,1900,2400,3000,3600,4200,8000]
-massBins1=[1000,1200,1500,1900,2400,3000,3600,4200,4800,13000]
-massBins2=[1000,1200,1500,1900,2400,3000,3600,4200,4800,5400,6000,13000]
+massBins1=[1000,1200,1500,1900,2400,3000,3600,4200,4800,5400,6000,13000]
+massBins2=[1000,1200,1500,1900,2400,3000,3600,4200,4800,5400,6000,7000,13000]
 
 
 chiBins1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]

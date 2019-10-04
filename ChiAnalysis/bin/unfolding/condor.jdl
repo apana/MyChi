@@ -1,0 +1,13 @@
+universe = vanilla
+request_memory = 8400
+Executable = run_condor.csh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Transfer_Input_Files = run_condor.csh
+Output = condorOut/runResponse_$ENV(MC)_$ENV(Binning)_$ENV(smearing)_$ENV(theDate).stdout
+Error = condorOut/runResponse_$ENV(MC)_$ENV(Binning)_$ENV(smearing)_$ENV(theDate).stderr
+Log = condorOut/runResponse_$ENV(MC)_$ENV(Binning)_$ENV(smearing)_$ENV(theDate).log
+x509userproxy = $ENV(X509_USER_PROXY)
+Arguments = CreateResponseMatrix.py $ENV(outputDir)/Response_$ENV(MC)_$ENV(Binning)_$ENV(smearing)_$ENV(theDate).root filelists/chiNtuple_$ENV(MC)_$ENV(Binning)_$ENV(smearing).list 
+getenv = True
+Queue 1
